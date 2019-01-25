@@ -11,6 +11,9 @@ namespace EntApp1.Pages
     {
         public string Message { get; set; }
 
+        [BindProperty]
+        public int Number1 { get; set; }
+
         public void OnGet()
         {
             Message = "Hello World from the Get method";
@@ -18,7 +21,8 @@ namespace EntApp1.Pages
 
         public void OnPost()
         {
-            Message = "Hello from the Post method";
+            Message = 
+                String.Format("Hello from the Post method  using page model properties number was {0}", Number1);
         }
     }
 }
