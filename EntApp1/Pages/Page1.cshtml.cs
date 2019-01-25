@@ -15,5 +15,10 @@ namespace EntApp1.Pages
         {
             Message = "Hello World from the Get method";
         }
+
+        public void OnPost()
+        {
+            Message = "Hello from the Post method";
+        }
     }
 }
