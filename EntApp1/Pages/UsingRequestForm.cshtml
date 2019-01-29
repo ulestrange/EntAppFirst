@@ -1,0 +1,38 @@
+﻿@page
+@model EntApp1.Pages.UsingRequestFormModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UsingRequestForm</title>
+
+    <!-- This is not a recommended way to access the values
+        submitted in the form. However it does work and is similar to
+        what happens in PHP and some other web application frameworks.-->
+
+</head>
+<body>
+
+
+    <form method="post">
+
+        <label for="firstname"> Enter Your Name</label>
+        <input type="text" id="firstname" name="firstname" />
+
+
+        <button type="submit">Press Here</button>
+
+    </form>
+
+    <h2>@Model.Message</h2>
+
+
+</body>
+</html>
+
