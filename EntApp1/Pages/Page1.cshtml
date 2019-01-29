@@ -16,9 +16,11 @@
 
     <form method="post">
 
-        <label for="number1">Number 1</label>
-        <input  id="number1" name="number1" value=@Model.Number1 />
+        <label asp-for=Number1>Number 1</label>
+        <input asp-for=Number1 />
 
+        <label asp-for=Number2></label>
+        <input asp-for=Number2 />
 
         <button type="submit">Press Me to see what happens</button>
     </form>

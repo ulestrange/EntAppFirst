@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,10 @@ namespace EntApp1.Pages
         [BindProperty]
         public int Number1 { get; set; }
 
+        [BindProperty]
+        [Display(Name = "Second Number")]
+        public int? Number2 { get; set; }
+
         public void OnGet()
         {
             Message = "Hello World from the Get method";
@@ -21,8 +26,8 @@ namespace EntApp1.Pages
 
         public void OnPost()
         {
-            Message = 
-                String.Format("Hello from the Post method  using page model properties number was {0}", Number1);
+            Message =
+                $"{Number1} plus {Number2} equals {Number1 + Number2}";
         }
     }
 }
