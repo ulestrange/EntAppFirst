@@ -11,9 +11,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ws1</title>
-
-
-
 </head>
 <body>
 
@@ -29,13 +26,30 @@
         <label for="firstname"> Enter Your Name</label>
         <input type="text" id="firstname" name="firstname" />
 
+        <label for="number1">Number 1</label>
+        <input type="number" id="number1" name="number1" />
 
+        <label for="number2">Number 2</label>
+        <input type="number" id="number2" name="number2" />
+
+
+        <fieldset>
+            <legend>Choose your operation</legend>
+            <input type="radio" name="operation" value="plus" id="plus" /><label for="plus">Plus</label>
+            <input type="radio" name="operation" value="minus" id="minus" /><label for="minus">Minus</label>
+            <input type="radio" name="operation" value="multiply" id="multiply" /><label for="multiply">Multiply</label>
+            <input type="radio" name="operation" value="divide" id="divide" /><label for="divide">Divide</label>
+
+
+        </fieldset>
         <button type="submit">Press Here</button>
 
     </form>
 
     <h2>@Model.Message</h2>
 
+    <h2>@Model.Message2</h2>
 
+    <h2>@Model.Message3</h2>
 </body>
 </html>
