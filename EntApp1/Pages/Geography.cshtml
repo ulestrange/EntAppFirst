@@ -1,0 +1,44 @@
+﻿@page
+@model EntApp1.Pages.GeographyModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Geography Choices</h1>
+    <form method="post">
+
+        <fieldset>
+            <legend>Pick all the provinces you like</legend>
+
+            @for (int i = 0; i < @Model.ProvinceChoice.Length; i++)
+            {
+                <input asp-for=ProvinceChoice[i] />
+                <label asp-for=ProvinceChoice[i]>@Model.ProvinceList[i]</label>
+
+            }
+        </fieldset>
+
+        <button type="submit">Press Me to see what happens</button>
+    </form>
+    <ul>
+        @for (int i = 0; i < @Model.ProvinceChoice.Length; i++)
+        {
+            if (@Model.ProvinceChoice[i])
+            {
+                <li> @Model.ProvinceList[i] </li>
+
+            }
+
+        }
+    </ul>
+
+</body>
+</html>
+
