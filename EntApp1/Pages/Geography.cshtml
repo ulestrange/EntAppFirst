@@ -14,16 +14,23 @@
     <h1>Geography Choices</h1>
     <form method="post">
 
-        <fieldset>
+        <fieldset> 
             <legend>Pick all the provinces you like</legend>
 
             @for (int i = 0; i < @Model.ProvinceChoice.Length; i++)
             {
                 <input asp-for=ProvinceChoice[i] />
                 <label asp-for=ProvinceChoice[i]>@Model.ProvinceList[i]</label>
-
             }
         </fieldset>
+
+        <select asp-for=ChosenCounties >
+            @foreach (string county in @Model.CountyList)
+            {
+                <option>@county</option>
+            }
+
+        </select>
 
         <button type="submit">Press Me to see what happens</button>
     </form>
@@ -38,6 +45,10 @@
 
         }
     </ul>
+
+    <h3>@Model.Message</h3>
+
+
 
 </body>
 </html>
