@@ -14,39 +14,54 @@
     <h1>Geography Choices</h1>
     <form method="post">
 
-        <fieldset> 
+        <fieldset>
             <legend>Pick all the provinces you like</legend>
 
-            @for (int i = 0; i < @Model.ProvinceChoice.Length; i++)
+            @for (int i = 0; i < Model.Provinces.Length; i++)
             {
-                <input asp-for=ProvinceChoice[i] />
-                <label asp-for=ProvinceChoice[i]>@Model.ProvinceList[i]</label>
+                <input asp-for=Provinces[i].IsChosen />
+                <label asp-for=Provinces[i].IsChosen>@Model.Provinces[i].ProvinceName </label>
             }
         </fieldset>
 
-        <select asp-for=ChosenCounties >
-            @foreach (string county in @Model.CountyList)
-            {
-                <option>@county</option>
-            }
-
+        <select asp-for=ChosenCounties asp-items=@Model.CountyList>
         </select>
 
         <button type="submit">Press Me to see what happens</button>
     </form>
     <ul>
-        @for (int i = 0; i < @Model.ProvinceChoice.Length; i++)
+        @for (int i = 0; i < @Model.Provinces.Length; i++)
         {
-            if (@Model.ProvinceChoice[i])
+            if (@Model.Provinces[i].IsChosen)
             {
-                <li> @Model.ProvinceList[i] </li>
+                <li> @Model.Provinces[i].ProvinceName</li>
 
             }
 
         }
     </ul>
 
-    <h3>@Model.Message</h3>
+    @if (Model.HttpContext.Request.Method == "POST")
+    {
+        @if (@Model.ChosenCounties.Length == 0)
+        {
+            <h3>Your picked no counties</h3>;
+        }
+        else
+        {
+            <ul>
+
+                @foreach (string county in @Model.ChosenCounties)
+                {
+                    <li>@county</li>
+                }
+            </ul>
+
+        }
+    }
+
+
+
 
 
 
