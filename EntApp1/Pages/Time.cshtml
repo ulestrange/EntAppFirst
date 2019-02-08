@@ -1,0 +1,56 @@
+﻿@page
+@model EntApp1.Pages.TimeModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Time";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>Time</h2>
+
+    <form method="post">
+
+        <fieldset>
+            <legend>Pick a Day</legend>
+            @for (int i = 0; i < @Model.DayNames.Length; i++)
+            {
+                <input asp-for=IsDayChosen[i]>
+                <label asp-for=IsDayChosen[i]>@Model.DayNames[i]</label>
+
+            }
+        </fieldset>
+
+        <select asp-for=MonthsChosen asp-items=Model.MonthsSelectList></select>
+
+        <button type="submit">Press Me to see what happens</button>
+    </form>
+
+
+    <ul>
+        @for (int i = 0; i < @Model.DayNames.Length; i++)
+        {
+
+            if (Model.IsDayChosen[i])
+            {
+                <li>@Model.DayNames[i]</li>
+            }
+        }
+    </ul>
+
+    <ol>
+        @for (int i = 0; i < @Model.MonthsChosen.Length; i++)
+        {
+          
+                <li>@Model.MonthsChosen[i]</li>       
+        }
+    </ol>
+</body>
+</html>

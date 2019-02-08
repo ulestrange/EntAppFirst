@@ -1,0 +1,41 @@
+﻿@page
+@model EntApp1.Pages.DataTypeModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DataType</title>
+
+
+</head>
+<body>
+
+
+    <form method="post">
+
+        <input asp-for=CreditCard><br />
+
+        <input asp-for=Currency><br />
+        <input asp-for=Duration><br />
+        <input asp-for=Email><br />
+        <input asp-for=Html><br />
+        <input asp-for=ImageUrl><br />
+        <input asp-for=MlText><br />
+        <input asp-for=Password><br />
+        <input asp-for=PhoneNumber><br />
+        <input asp-for=PostalCode><br />
+        <input asp-for=WebAddress><br />
+        <input asp-for=Upload><br />
+
+
+        <button type="submit">Press Me</button>
+    </form>
+</body>
+</html>
